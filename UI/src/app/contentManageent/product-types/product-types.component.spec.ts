@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GismapComponent } from './gismap.component';
+import { ProductTypesComponent } from './product-types.component';
 
-describe('GismapComponent', () => {
-  let component: GismapComponent;
-  let fixture: ComponentFixture<GismapComponent>;
+describe('ProductTypesComponent', () => {
+  let component: ProductTypesComponent;
+  let fixture: ComponentFixture<ProductTypesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GismapComponent]
+      imports: [ProductTypesComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(GismapComponent);
+    fixture = TestBed.createComponent(ProductTypesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
