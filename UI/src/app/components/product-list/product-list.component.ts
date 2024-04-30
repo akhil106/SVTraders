@@ -8,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 
-import { ProductmodalComponent } from '../../modals/productmodal/productmodal.component';
+import { ProductListModalComponent } from '../../modals/product-list-modal/product-list-modal.component';
 import { SharedService } from '../../sharedService/shared.service';
 
 @Component({
@@ -66,7 +66,7 @@ dataSource = new MatTableDataSource<PeriodicElement>(this.ELEMENT_DATA);
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(ProductmodalComponent, {
+    const dialogRef = this.dialog.open(ProductListModalComponent, {
       data: { name: 'Add' },
     });
     dialogRef.afterClosed().subscribe(result => {

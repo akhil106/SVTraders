@@ -1,1 +1,63 @@
-<p>product-types works!</p>
+<div class="example-button-row">
+    <button mat-stroked-button color="primary" class="float-end p-1" (click)="openDialog('Add')">+ Add Product Type</button>
+</div>
+<div class="mat-elevation-z8">
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search ..." #input>
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" matSort 
+        class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+        No.
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <!-- productType Column -->
+    <ng-container matColumnDef="productType">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by productType">
+        Product Type
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.productType}} </td>
+    </ng-container>
+
+    <!-- productCategoryName Column -->
+    <ng-container matColumnDef="productCategoryName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by productCategoryName">
+        Product Category
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.productCategoryName}} </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef>
+        Actions
+        </th>
+        <td mat-cell *matCellDef="let element"> 
+            <button mat-icon-button color="primary" (click)="onEdit(element)" aria-label="Example icon button with a edit icon">
+                <i class="bi bi-pencil-square"></i>
+            </button>    
+            <button mat-icon-button color="primary" (click)="onDelete(element)" aria-label="Example icon button with a delete icon">
+                <i class="bi bi-trash"></i>
+            </button>  
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>

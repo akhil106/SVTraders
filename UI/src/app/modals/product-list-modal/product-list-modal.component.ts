@@ -13,13 +13,13 @@ import { CommonModule } from '@angular/common';
 import { SharedService } from '../../sharedService/shared.service';
 
 @Component({
-  selector: 'app-productmodal',
+  selector: 'app-product-list-modal',
   standalone: true,
   imports: [MatDialogModule, MatButtonModule,ReactiveFormsModule,CommonModule],
-  templateUrl: './productmodal.component.html',
-  styleUrl: './productmodal.component.scss'
+  templateUrl: './product-list-modal.component.html',
+  styleUrl: './product-list-modal.component.scss'
 })
-export class ProductmodalComponent {
+export class ProductListModalComponent {
 
   title:any;
   form: FormGroup = new FormGroup({
